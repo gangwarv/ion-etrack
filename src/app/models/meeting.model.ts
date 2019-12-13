@@ -1,0 +1,35 @@
+export interface Meeting {
+    COMP_CODE:        string;
+    CENT_CODE:        string;
+    SCM_CODE:         string;
+    STATE_CODE:       string;
+    STATE_NAME:       string;
+    CITY_CODE:        string;
+    CITY_NAME:        string;
+    TYPE_CODE:        string;
+    TYPE_NAME:        string;
+    LOCATION_CODE:    string;
+    LOCATION_NAME:    string;
+    DIST_CODE:        string;
+    DISTRIBUTOR_NAME: string;
+    DIST_PRODUCT:     string;
+    DIST_REMARKS:     string;
+    PAY_MODE:         string;
+    CHEQUE_NO:        string;
+    CHEQUE_DATE:      string;
+    BANK_CODE:        string;
+    BANK_NAME:        string;
+    AMOUNT:           number;
+    CLIENT_CODE:      string;
+    CLIENT_NAME:      string;
+    MOBILE:           string;
+    VISIT_STATUS:     string;
+    ADDR1:            string;
+    ADDR2:            string;
+    NEXT_DATE:        string;
+    PHOTO_PATH:       string;
+    ORDER_FLAG:       string;
+    CLIENT_PRODUCT:   string;
+    REMARKS:          string;
+    UPDATE_DATE:      number;
+}
