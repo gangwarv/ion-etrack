@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ApiService } from "../api.service";
+import { HttpService } from "../http.service";
 import { ApiResponse } from "../../models/api-response.model";
 import { Meeting } from "../../models/meeting.model";
 import { BehaviorSubject } from "rxjs";
@@ -14,7 +14,7 @@ export class MeetingService {
   url = "/meetings";
   meetings: BehaviorSubject<Meeting[]>;
 
-  constructor(private api: ApiService) {
+  constructor(private api: HttpService) {
     this.meetings = new BehaviorSubject<Meeting[]>([]);
     this.get();
   }

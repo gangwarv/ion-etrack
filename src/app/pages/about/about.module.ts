@@ -6,16 +6,19 @@ import { IonicModule } from '@ionic/angular';
 import { AboutPage } from './about';
 import { PopoverPage } from '../about-popover/about-popover';
 import { AboutPageRoutingModule } from './about-routing.module';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     AboutPageRoutingModule
   ],
   declarations: [AboutPage, PopoverPage],
   entryComponents: [PopoverPage],
   bootstrap: [AboutPage],
+  
 })
 export class AboutModule {}

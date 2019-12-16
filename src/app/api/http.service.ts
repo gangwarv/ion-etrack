@@ -9,20 +9,12 @@ const BASE_URL = env.baseUrl;
 @Injectable({
   providedIn: "root"
 })
-export class ApiService {
+export class HttpService {
   private options = {
     headers: new HttpHeaders().set("Content-Type", "application/json")
   };
 
   constructor(private httpClient: HttpClient) {}
-  
-  public getTemp(
-    path: string
-  ): Promise<any> {
-    return this.httpClient
-      .get(path, this.options)
-      .toPromise();
-  }
 
   public get(
     path: string,

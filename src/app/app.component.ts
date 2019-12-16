@@ -12,6 +12,8 @@ import { Storage } from "@ionic/storage";
 
 import { UserData } from "./providers/user-data";
 
+import { defineCustomElements } from "@ionic/pwa-elements/loader";
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -76,6 +78,9 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       if (Capacitor.isPluginAvailable("SplashScreen")) {
         Plugins.SplashScreen.hide();
+      }
+      if(!this.platform.is('hybrid')){
+        defineCustomElements(window);
       }
     });
   }

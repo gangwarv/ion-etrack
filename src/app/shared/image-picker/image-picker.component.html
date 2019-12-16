@@ -1,0 +1,33 @@
+<div class="picker">
+  <ion-row>
+    <ion-col>
+      <ion-button color="primary" (click)="onPickImage()">
+        <ion-icon name="camera" slot="start"></ion-icon>
+        <ion-label>Take Picture <span *ngIf="!!selectedImages.length">({{selectedImages.length}})</span> </ion-label>
+      </ion-button>
+      {{ status }}
+    </ion-col>
+    <ion-col>
+        <ion-button color="primary" *ngIf="!!selectedImages.length" (click)="onRemoveImage()">
+            <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      <!-- <ion-img
+        *ngIf="selectedImage"
+        role="button"
+        class="image"
+        (click)="onPickImage()"
+        [src]="selectedImage"
+      >
+      </ion-img> -->
+      <!-- <ion-col>
+        <ion-thumbnail
+        *ngIf="selectedImage"
+      >
+      <img role="button"
+      class="image"
+      (click)="onPickImage()"
+      [src]="selectedImage" />
+    </ion-thumbnail> -->
+    </ion-col>
+  </ion-row>
+</div>

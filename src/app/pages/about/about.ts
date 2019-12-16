@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-import { ApiService } from "./../../api/api.service";
+import { HttpService } from "../../api/http.service";
 import { NativeHttpService } from "./../../api/native-http.service";
 
 @Component({
@@ -9,18 +9,18 @@ import { NativeHttpService } from "./../../api/native-http.service";
   styleUrls: ["./about.scss"]
 })
 export class AboutPage {
-  url = "http://192.168.2.11/etrack/api/values"
+  url = "/api/cities?city=A&country=IN0"
   data: any;
   error: any;
   constructor(
-    private http: ApiService,
+    private http: HttpService,
     private nativeHttp: NativeHttpService
   ) {}
 
   call(){
-    this.data = "calling Http";
+    this.data = "Http...";
     this.error = null;
-    this.http.getTemp(this.url)
+    this.http.get(this.url).toPromise()
     .then(res=>{
       this.data = res;
     })
@@ -30,9 +30,9 @@ export class AboutPage {
     })
   }
   nativeCall(){
-    this.data = "calling NativeHttp";
+    this.data = "NativeHttp...";
     this.error = null;
-    this.nativeHttp.get(this.url)
+    this.nativeHttp.get(this.url).toPromise()
     .then(res=>{
       this.data = res;
     })
