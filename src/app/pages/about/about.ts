@@ -1,11 +1,7 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component } from "@angular/core";
 
-import { PopoverController } from "@ionic/angular";
-
-import { PopoverPage } from "../about-popover/about-popover";
-import { MeetingService } from "./../../api/meeting/meeting.service";
-import { Observable } from "rxjs";
-import { Meeting } from "../../models/meeting.model";
+import { ApiService } from "./../../api/api.service";
+import { NativeHttpService } from "./../../api/native-http.service";
 
 @Component({
   selector: "page-about",
@@ -13,20 +9,36 @@ import { Meeting } from "../../models/meeting.model";
   styleUrls: ["./about.scss"]
 })
 export class AboutPage {
-  conferenceDate = "2047-05-17";
-  meetings: Observable<Meeting[]>;
+  url = "http://192.168.2.11/etrack/api/values"
+  data: any;
+  error: any;
   constructor(
-    public popoverCtrl: PopoverController,
-    private meeting: MeetingService
-  ) {
-    this.meetings = meeting.get();
-  }
+    private http: ApiService,
+    private nativeHttp: NativeHttpService
+  ) {}
 
-  async presentPopover(event: Event) {
-    const popover = await this.popoverCtrl.create({
-      component: PopoverPage,
-      event
-    });
-    await popover.present();
+  call(){
+    this.data = "calling Http";
+    this.error = null;
+    this.http.getTemp(this.url)
+    .then(res=>{
+      this.data = res;
+    })
+    .catch(err=>{
+      this.error = err;
+      this.data = null;
+    })
+  }
+  nativeCall(){
+    this.data = "calling NativeHttp";
+    this.error = null;
+    this.nativeHttp.get(this.url)
+    .then(res=>{
+      this.data = res;
+    })
+    .catch(err=>{
+      this.error = err;
+      this.data = null;
+    })
   }
 }

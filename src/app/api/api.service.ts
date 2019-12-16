@@ -16,6 +16,14 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) {}
   
+  public getTemp(
+    path: string
+  ): Promise<any> {
+    return this.httpClient
+      .get(path, this.options)
+      .toPromise();
+  }
+
   public get(
     path: string,
     params: HttpParams = new HttpParams()
