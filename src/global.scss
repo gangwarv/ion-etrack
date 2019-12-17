@@ -31,5 +31,9 @@
  * Imports a file that can contain Sass/CSS that should be used throughout
  * the entire app.
  */
+ /* Custom  for ngx-dt */
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
 
 @import "./app/app.scss";
